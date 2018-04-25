@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Locat</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send</string>
+    <string name="button_openwifi">Open</string>
+    <string name="button_closewifi">Close</string>
+</resources>
