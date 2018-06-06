@@ -5,4 +5,5 @@
     <string name="button_openwifi">Open</string>
     <string name="button_closewifi">Close</string>
     <string name="button_mark">Mark</string>
+    <string name="button_clear">Clear</string>
 </resources>

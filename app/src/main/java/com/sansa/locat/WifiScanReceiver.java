@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
+import java.util.regex.*;
 
 import java.util.List;
 
@@ -21,10 +22,13 @@ public class WifiScanReceiver extends BroadcastReceiver {
     /**Transform ap-list to string*/
     public StringBuilder ReadScan(List<ScanResult> apList) {
         StringBuilder StringList = new StringBuilder();
+        String pattern = "SJTU(.*)|CMCC(.*)|China(.*)|edu(.*)"; //正则表达式筛选
         for (int i = 0; i < apList.size(); i++) {
-            StringList.append("Index_").append(Integer.valueOf(i + 1).toString()).append(":");
-            StringList.append((apList.get(i).SSID)).append(" // ").append((apList.get(i).BSSID)).append(" // ").append(apList.get(i).level);
-            StringList.append("\n");
+            if(Pattern.matches(pattern, apList.get(i).SSID)) {
+                StringList.append("Index_").append(Integer.valueOf(i + 1).toString()).append(":");
+                StringList.append((apList.get(i).SSID)).append(" // ").append((apList.get(i).BSSID)).append(" // ").append(apList.get(i).level);
+                StringList.append("\n");
+            }
         }
         return StringList;
     }
